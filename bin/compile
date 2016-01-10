@@ -23,7 +23,7 @@ unzip ngrok.zip -d $BUILD_DIR/.heroku/bin > /dev/null 2>&1
 chmod +x $BUILD_DIR/.heroku/bin/ngrok
 
 cat << EOF > $BUILD_DIR/.profile.d/ngrok.sh
-export PATH=\$HOME/.heroku/bin:\$PATH
+export PATH=$HOME/.heroku/bin:$PATH
 EOF
 
 ######### Install SSH launcher
