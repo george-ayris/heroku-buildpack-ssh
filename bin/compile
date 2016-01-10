@@ -17,18 +17,18 @@ OPT_DIR=$BP_DIR/../opt/
 ######### Install ngrok
 echo -n "-----> Installing ngrok... "
 mkdir -p $BUILD_DIR/.profile.d
-mkdir -p $BUILD_DIR/.heroku/bin
+mkdir -p $BUILD_DIR/.local/bin
 curl --silent --retry 3 -o ngrok.zip -L "https://dl.ngrok.com/ngrok_2.0.19_linux_amd64.zip" | indent
-unzip ngrok.zip -d $BUILD_DIR/.heroku/bin > /dev/null 2>&1
-chmod +x $BUILD_DIR/.heroku/bin/ngrok
+unzip ngrok.zip -d $BUILD_DIR/.local/bin > /dev/null 2>&1
+chmod +x $BUILD_DIR/.local/bin/ngrok
 
 cat << EOF > $BUILD_DIR/.profile.d/ngrok.sh
-export PATH=$HOME/.heroku/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 EOF
 
 ######### Install SSH launcher
-cp $OPT_DIR/with_ssh $BUILD_DIR/.heroku/bin/with_ssh
-chmod +x $BUILD_DIR/.heroku/bin/with_ssh
+cp $OPT_DIR/with_ssh $BUILD_DIR/.local/bin/with_ssh
+chmod +x $BUILD_DIR/.local/bin/with_ssh
 
 ######### Configure SSH Daemon
 # TODO get key from config var if available
